@@ -2,47 +2,41 @@
 
 #include <stdio.h>
 
-typedef struct {
+typedef struct{
     int x;
     int y;
-} Point;
+}str;
 
-void swapFields(Point *p1, Point *p2) {
-    // Swap the fields using temporary variables
-    int tempX = p1->x;
-    int tempY = p1->y;
+void swap_fields(str* ptr1, str* ptr2){
 
-    p1->x = p2->x;
-    p1->y = p2->y;
+    int temp1 = ptr1->x;
+    int temp2 = ptr1->y;
 
-    p2->x = tempX;
-    p2->y = tempY;
+    ptr1->x = ptr2->x;
+    ptr1->y = ptr2->y;
+
+    ptr2->x = temp1;
+    ptr2->y = temp2;
 }
 
-int main() {
-    Point point1, point2;
+int main(){
+    str str1,str2;
 
-    printf("Enter the x-coordinate of point 1: ");
-    scanf("%d", &(point1.x));
+    printf("Enter the value of x and y in struct 1 : ");
+    scanf("%d %d",&(str1.x),&(str1.y));
 
-    printf("Enter the y-coordinate of point 1: ");
-    scanf("%d", &(point1.y));
-
-    printf("Enter the x-coordinate of point 2: ");
-    scanf("%d", &(point2.x));
-
-    printf("Enter the y-coordinate of point 2: ");
-    scanf("%d", &(point2.y));
+    printf("Enter the value of x and y in struct 2 : ");
+    scanf("%d %d",&(str2.x),&(str2.y));
 
     printf("\nBefore swapping:\n");
-    printf("Point 1: (%d, %d)\n", point1.x, point1.y);
-    printf("Point 2: (%d, %d)\n", point2.x, point2.y);
+    printf("struct 1: (%d,%d)\n",str1.x,str1.y);
+    printf("struct 2: (%d,%d)\n",str2.x,str2.y);
 
-    swapFields(&point1, &point2);
+    swap_fields(&str1,&str2);
 
     printf("\nAfter swapping:\n");
-    printf("Point 1: (%d, %d)\n", point1.x, point1.y);
-    printf("Point 2: (%d, %d)\n", point2.x, point2.y);
+    printf("struct 1: (%d,%d)\n",str1.x,str1.y);
+    printf("struct 2: (%d,%d)\n",str2.x,str2.y);
 
     return 0;
 }

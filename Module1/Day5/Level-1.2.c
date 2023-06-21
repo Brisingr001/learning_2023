@@ -5,79 +5,54 @@
 //      iv) Multiplication of two complex numbers 
 // (Note: represent complex number using a structure).
 
-/*#include<stdio.h>
-#include<complex.h>
+#include<stdio.h>
 
 typedef struct{
-    float x;
-    float y;
-}cmplx;
-
-int main(){
-
-float a,b;
-printf("Enter the real and imaginary part of the complex number (a b) : ");
-scanf("%f %f",&a,&b);
-
-
-}
-
-*/
-
-
-
-    #include<stdio.h>
-
-typedef struct {
     float real;
     float imaginary;
-} Complex;
+}complex;
 
-void readComplex(Complex *c) {
+void readcomplex(complex *c){
     printf("Enter the real and imaginary part of the complex number (a b): ");
     scanf("%f %f", &(c->real), &(c->imaginary));
 }
 
-void writeComplex(const Complex *c) {
+void writecomplex(const complex *c){
     printf("Complex number: %.2f + %.2fi\n", c->real, c->imaginary);
 }
 
-Complex addComplex(const Complex *c1, const Complex *c2) {
-    Complex result;
+complex addcomplex(const complex *c1, const complex *c2){
+    complex result;
     result.real = c1->real + c2->real;
     result.imaginary = c1->imaginary + c2->imaginary;
     return result;
 }
 
-Complex multiplyComplex(const Complex *c1, const Complex *c2) {
-    Complex result;
+complex multiplycomplex(const complex *c1, const complex *c2){
+    complex result;
     result.real = (c1->real * c2->real) - (c1->imaginary * c2->imaginary);
     result.imaginary = (c1->real * c2->imaginary) + (c1->imaginary * c2->real);
     return result;
 }
 
-int main() {
-    Complex c1, c2, sum, product;
+int main(){
+    complex c1, c2, sum, product;
 
-    // Read two complex numbers
-    readComplex(&c1);
-    readComplex(&c2);
+    readcomplex(&c1);
+    readcomplex(&c2);
 
-    // Write the two complex numbers
     printf("Complex Number 1:\n");
-    writeComplex(&c1);
+    writecomplex(&c1);
     printf("Complex Number 2:\n");
-    writeComplex(&c2);
+    writecomplex(&c2);
 
-    // Perform addition of two complex numbers
-    sum = addComplex(&c1, &c2);
+    sum = addcomplex(&c1,&c2);
     printf("Sum of two complex numbers:\n");
-    writeComplex(&sum);
+    writecomplex(&sum);
 
-    // Perform multiplication of two complex numbers
-    product = multiplyComplex(&c1, &c2);
+    product = multiplycomplex(&c1,&c2);
     printf("Product of two complex numbers:\n");
-    writeComplex(&product);
+    writecomplex(&product);
 
     return 0;
 }

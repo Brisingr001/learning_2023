@@ -4,15 +4,15 @@
 //     - Marks of Physics, Math and Chemistry
 //     Calculate the total, percentage and print the summary.
 #include<stdio.h>
-struct Student{
+struct student{
     int rollno;
     char name[100];
     float phy;
     float math;
     float chem;
 };
-typedef struct Student Student;
-void summary(Student s1){
+typedef struct student student;
+void summary(student s1){
     float total=s1.phy+s1.chem+s1.math;
     float percentage=total/3;
     printf("Roll No: %d\n", s1.rollno);
@@ -24,7 +24,7 @@ void summary(Student s1){
     printf("Percentage: %.2f%%\n", percentage);
 }
 int main(){ 
-    Student s1;
+    student s1;
     printf("Enter the name\n");
     fgets(s1.name,100,stdin);
     printf("Enter the roll number\n");

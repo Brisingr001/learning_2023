@@ -4,22 +4,20 @@
 #include <stdlib.h>
 
 typedef struct {
-    char name[50];
+    char name[30];
     int age;
     float grade;
-} Student;
+} student;
 
 int main() {
     int n;
     printf("Enter the number of students: ");
     scanf("%d", &n);
 
-    // Dynamically allocate memory for an array of 'n' students
-    Student *students = (Student *)malloc(n * sizeof(Student));
+    student *students=(student *)malloc(n * sizeof(student));
 
-    // Read data for each student
-    for (int i = 0; i < n; i++) {
-        printf("\nStudent %d\n", i + 1);
+    for (int i = 0; i < n; i++){
+        printf("\nStudent %d\n", i+1);
         printf("Enter name: ");
         scanf("%s", students[i].name);
         printf("Enter age: ");
@@ -28,17 +26,13 @@ int main() {
         scanf("%f", &(students[i].grade));
     }
 
-    // Display the stored data for each student
     printf("\nStudent Data:\n");
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++){
         printf("\nStudent %d\n", i + 1);
         printf("Name: %s\n", students[i].name);
         printf("Age: %d\n", students[i].age);
         printf("Grade: %.2f\n", students[i].grade);
     }
-
-    // Free the dynamically allocated memory
-    free(students);
 
     return 0;
 }
